@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DU Guardian</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <div class="shield-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <path d="M14 2L4 6.5V13C4 18.8 8.4 24.3 14 26C19.6 24.3 24 18.8 24 13V6.5L14 2Z" fill="#E8FF47"/>
+          <path d="M10 14l2.5 2.5L18 11" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span class="brand-text">DU Guardian</span>
+    </div>
+    <div class="nav-links">
+      <a href="#" class="nav-link active">Home</a>
+
+
+      <button class="nav-sos" onclick="showSOS()">SOS</button>
+    </div>
+    <div class="nav-status">
+      <span class="status-dot"></span>
+      <span class="status-text">Campus Shield Active</span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-tag">Delhi University Safety System</div>
+    <h1 class="hero-title">Your Campus,<br/><span class="accent">Secured.</span></h1>
+    <p class="hero-sub">AI-powered safety companion for DU students. Report concerns, get support, stay safe — anonymously and securely.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="openChat()">Talk to Guardian</button>
+      <button class="btn-outline" onclick="trackComplaint()">Track Complaint</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">2.4k+</span><span class="stat-label">Students Protected</span></div>
+      <div class="stat-div"></div>
+      <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Anonymous</span></div>
+      <div class="stat-div"></div>
+      <div class="stat"><span class="stat-num">On-chain</span><span class="stat-label">Tamper-proof Records</span></div>
+    </div>
+    <div class="hero-glow"></div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">Three steps to safety</h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-icon">💬</div>
+        <h3>Tell Guardian</h3>
+        <p>Describe your situation naturally. Our AI detects your emotional state and understands what you need.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-icon">📝</div>
+        <h3>Review Complaint</h3>
+        <p>AI structures your words into a formal complaint. You review, edit, and approve before anything is submitted.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-icon">🔒</div>
+        <h3>Secure & Submit</h3>
+        <p>Your complaint is hashed on-chain via Sepolia testnet. Tamper-proof, private, and verifiable forever.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAT SECTION -->
+  <section class="chat-section" id="chatSection">
+    <div class="section-label">Guardian AI</div>
+    <h2 class="section-title">Talk to your campus guardian</h2>
+
+    <div class="chat-container">
+      <div class="emotion-bar" id="emotionBar">
+        <div class="emotion-label">Emotional State:</div>
+        <div class="emotion-badges">
+          <span class="emotion-badge safe active" id="badgeSafe">Safe</span>
+          <span class="emotion-badge stressed" id="badgeStressed">Stressed</span>
+          <span class="emotion-badge unsafe" id="badgeUnsafe">Unsafe</span>
+        </div>
+        <div class="emotion-note" id="emotionNote">How are you feeling today?</div>
+      </div>
+
+      <div class="chat-window" id="chatWindow">
+        <div class="chat-msg bot">
+          <div class="msg-avatar">G</div>
+          <div class="msg-bubble">
+            Hello! I'm your DU Guardian. I'm here to help you feel safe on campus.<br/><br/>
+            You can talk to me about anything — harassment, ragging, stress, safety concerns, or just something that's bothering you. I'll listen and help you take the right steps.<br/><br/>
+            <strong>What's on your mind?</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-input-area">
+        <div class="input-wrap">
+          <textarea id="userInput" class="chat-input" placeholder="Describe what's happening or how you're feeling…" rows="2"></textarea>
+          <button class="send-btn" onclick="sendMessage()" id="sendBtn">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M2 10L17 3L10 18L8.5 11.5L2 10Z" fill="currentColor"/>
+            </svg>
+          </button>
+        </div>
+        <div class="input-hint">
+          <span>🔒 Private & encrypted</span>
+          <span>·</span>
+          <span>Anonymous by default</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPLAINT MODAL -->
+  <div class="modal-overlay" id="complaintModal">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-title">
+          <svg width="18" height="18" viewBox="0 0 28 28" fill="none">
+            <path d="M14 2L4 6.5V13C4 18.8 8.4 24.3 14 26C19.6 24.3 24 18.8 24 13V6.5L14 2Z" fill="#E8FF47"/>
+          </svg>
+          Formal Complaint Draft
+        </div>
+        <button class="modal-close" onclick="closeComplaintModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-note">Guardian has structured your concern into a formal complaint. Review and edit before submitting.</p>
+        <div class="complaint-fields">
+          <div class="field-group">
+            <label>Incident Type</label>
+            <input type="text" id="incidentType" class="field-input"/>
+          </div>
+          <div class="field-group">
+            <label>Date / Time</label>
+            <input type="text" id="incidentDate" class="field-input"/>
+          </div>
+          <div class="field-group">
+            <label>Location</label>
+            <input type="text" id="incidentLocation" class="field-input"/>
+          </div>
+          <div class="field-group">
+            <label>Formal Description</label>
+            <textarea id="formalDesc" class="field-textarea" rows="5"></textarea>
+          </div>
+          <div class="field-group">
+            <label>Requested Action</label>
+            <input type="text" id="requestedAction" class="field-input"/>
+          </div>
+          <div class="anon-toggle">
+            <input type="checkbox" id="anonCheck" checked onchange="toggleIdentityFields()"/>
+            <label for="anonCheck">Submit Anonymously</label>
+          </div>
+          <div id="identityFields" style="display:none; margin-top:1rem; border-top:1px solid rgba(255,255,255,0.08); padding-top:1rem;">
+            <p style="font-size:0.78rem;color:#aaa;margin-bottom:0.75rem;">Your identity will be attached to the complaint record.</p>
+            <div class="field-group">
+              <label>Full Name</label>
+              <input type="text" id="studentName" class="field-input" placeholder="Your full name"/>
+            </div>
+            <div class="field-group">
+              <label>Branch / Department</label>
+              <input type="text" id="studentBranch" class="field-input" placeholder="e.g. Computer Science"/>
+            </div>
+            <div class="field-group">
+              <label>Year</label>
+              <input type="text" id="studentYear" class="field-input" placeholder="e.g. 2nd Year"/>
+            </div>
+            <div class="field-group">
+              <label>Roll Number</label>
+              <input type="text" id="studentRoll" class="field-input" placeholder="Your roll number"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-outline" onclick="closeComplaintModal()">Edit More</button>
+        <button class="btn-primary" onclick="submitComplaint()">Submit & Hash on Blockchain</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HASH SUCCESS MODAL -->
+  <div class="modal-overlay" id="hashModal">
+    <div class="modal modal-sm">
+      <div class="modal-header">
+        <div class="modal-title">✅ Complaint Submitted</div>
+        <button class="modal-close" onclick="closeHashModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="hash-success">
+          <div class="hash-icon">🔗</div>
+          <p>Your complaint is cryptographically hashed and recorded on Sepolia Testnet.</p>
+          <div class="hash-box">
+            <span class="hash-label">Complaint Hash (SHA-256)</span>
+            <code id="complaintHash" class="hash-code"></code>
+          </div>
+          <div class="hash-box">
+            <span class="hash-label">Blockchain Tx Hash</span>
+            <code id="txHash" class="hash-code"></code>
+          </div>
+          <p class="hash-note">Save your hash to track or verify your complaint. Your identity stays protected.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-primary full-width" onclick="closeHashModal()">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOS OVERLAY -->
+  <div class="sos-overlay" id="sosOverlay">
+    <div class="sos-box">
+      <div class="sos-top">
+        <div class="sos-pulse"></div>
+        <div class="sos-title">EMERGENCY SOS</div>
+      </div>
+      <p>Connecting you to DU campus security and emergency services.</p>
+      <div class="sos-numbers">
+        <a href="tel:112" class="sos-num">📞 112 — National Emergency</a>
+        <a href="tel:100" class="sos-num">📞 100 — Police</a>
+        <a href="tel:1800111555" class="sos-num">📞 1800-111-555 — DU Helpline</a>
+        <a href="tel:181" class="sos-num">📞 181 — Women Helpline</a>
+      </div>
+      <button class="btn-sos-close" onclick="hideSOS()">Close SOS Panel</button>
+    </div>
+  </div>
+
+  <!-- TRACK MODAL -->
+  <div class="modal-overlay" id="trackModal">
+    <div class="modal modal-sm">
+      <div class="modal-header">
+        <div class="modal-title">Track Complaint</div>
+        <button class="modal-close" onclick="closeTrackModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <p>Enter your complaint hash to verify it on the blockchain.</p>
+        <div class="field-group" style="margin-top:1rem">
+          <label>Complaint Hash</label>
+          <input type="text" id="trackHashInput" class="field-input" placeholder="Paste your SHA-256 hash…"/>
+        </div>
+        <button class="btn-primary" style="margin-top:1rem;width:100%" onclick="verifyHash()">Verify on Blockchain</button>
+        <div id="trackResult" class="track-result"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-brand">
+      <div class="shield-icon">
+        <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
+          <path d="M14 2L4 6.5V13C4 18.8 8.4 24.3 14 26C19.6 24.3 24 18.8 24 13V6.5L14 2Z" fill="#E8FF47"/>
+          <path d="M10 14l2.5 2.5L18 11" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span>DU Guardian — Campus Safety System</span>
+    </div>
+    <p class="footer-note">Built for Delhi University students. All data is encrypted and blockchain-verified. Anonymous by default.</p>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">How it works</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
+
+  <!-- ethers.js for MetaMask/blockchain -->
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.9.0/dist/ethers.umd.min.js"></script>
+  <!-- Main app logic -->
+  <script src="app.js"></script>
+
+</body>
+</html>
