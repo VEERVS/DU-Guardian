@@ -30,10 +30,10 @@ A three-step system:
 ---
 
 ## 🌐 Live Demo
-https://du-guardian.onrender.com
-
-> **Smart Contract (Sepolia Testnet):**
+> Smart Contract (Sepolia Testnet — Live):
 > [`0x1217cd3b3d18970ddaccff04b22f0e380e914079`](https://sepolia.etherscan.io/address/0x1217cd3b3d18970ddaccff04b22f0e380e914079)
+
+Run locally using the setup instructions below.
 
 ---
 
