@@ -29,6 +29,14 @@ A three-step system:
 
 ---
 
+## 🌐 Live Demo
+https://du-guardian.onrender.com
+
+> **Smart Contract (Sepolia Testnet):**
+> [`0x1217cd3b3d18970ddaccff04b22f0e380e914079`](https://sepolia.etherscan.io/address/0x1217cd3b3d18970ddaccff04b22f0e380e914079)
+
+---
+
 ## 🚀 Features
 
 - 🤖 **AI Emotion Detection** — Detects Safe / Stressed / Unsafe in real-time
