@@ -52,7 +52,7 @@ A three-step system:
 | **Hashing** | SHA-256 via Web Crypto API (native browser) |
 | **Frontend** | HTML, CSS, Vanilla JavaScript |
 | **Backend** | Node.js + Express |
-| **Deployment** | Render (backend) + Sepolia Testnet (contract) |
+| **Deployment** | Sepolia Testnet (contract) |
 
 ---
 
@@ -84,7 +84,7 @@ DU Guardian/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOURNAME/DU-Guardian.git
+git clone https://github.com/VEERVS/DU-Guardian.git
 cd du-guardian
 ```
 
@@ -116,28 +116,6 @@ node server.js
 ```
 http://localhost:3000
 ```
-
----
-
-## 🌍 Production Deployment (Render)
-
-1. Push code to GitHub
-2. Go to [render.com](https://render.com) → New Web Service
-3. Connect your GitHub repo
-4. Configure:
-
-| Field | Value |
-|-------|-------|
-| Runtime | Node |
-| Build Command | `npm install` |
-| Start Command | `node server.js` |
-| Instance Type | Free |
-
-5. Add environment variables:
-   - `GROQ_API_KEY` = your key
-   - `PORT` = 3000
-
-6. Deploy — live in ~2 minutes ✅
 
 ---
 
@@ -252,7 +230,6 @@ Send a message and get AI response.
 ## ⚠️ Important Notes
 
 - **Never commit `.env`** — your API key must stay private
-- **Render free tier** sleeps after 15 min inactivity — open the URL 5 min before demo
 - **Sepolia ETH** is free test currency — get from [sepoliafaucet.com](https://sepoliafaucet.com)
 - **MetaMask** must be on Sepolia network for blockchain submission
 
@@ -269,7 +246,6 @@ MIT License — free to use, modify, and deploy.
 - [Groq](https://groq.com) — Free Llama inference
 - [Ethers.js](https://ethers.org) — Ethereum library
 - [Remix IDE](https://remix.ethereum.org) — Smart contract deployment
-- [Render](https://render.com) — Free hosting
 
 ---
 
