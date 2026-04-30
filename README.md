@@ -5,17 +5,6 @@
 
 ---
 
-## 🌐 Live Demo
-
-```
-https://du-guardian.onrender.com
-```
-
-> **Smart Contract (Sepolia Testnet):**
-> [`0x1217cd3b3d18970ddaccff04b22f0e380e914079`](https://sepolia.etherscan.io/address/0x1217cd3b3d18970ddaccff04b22f0e380e914079)
-
----
-
 ## 🎯 Problem Statement
 
 Every year, thousands of Delhi University students face harassment, ragging, and threats — but most never report it. Why?
@@ -95,7 +84,7 @@ DU Guardian/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOURNAME/du-guardian.git
+git clone https://github.com/YOURNAME/DU-Guardian.git
 cd du-guardian
 ```
 
