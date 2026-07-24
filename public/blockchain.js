@@ -1,6 +1,3 @@
-// Ethers.js connector for Sepolia + MetaMask
-// =========================================
-// Include in index.html:
 // <script src="https://cdn.jsdelivr.net/npm/ethers@6.9.0/dist/ethers.umd.min.js"></script>
 // <script src="blockchain.js"></script>
 
