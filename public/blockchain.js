@@ -1,5 +1,3 @@
-// =========================================
-// DU GUARDIAN — blockchain.js
 // Ethers.js connector for Sepolia + MetaMask
 // =========================================
 // Include in index.html:
