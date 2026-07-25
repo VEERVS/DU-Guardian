@@ -1,10 +1,3 @@
-// =========================================
-// DU GUARDIAN — server.js (Backend)
-// Uses Groq API — FREE, ultra-fast Llama 3
-// Get free key: https://console.groq.com/
-// Run: node server.js
-// =========================================
-
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
