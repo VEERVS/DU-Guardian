@@ -52,9 +52,6 @@ let provider = null;
 let signer = null;
 let contract = null;
 
-// =========================================
-// CONNECT METAMASK
-// =========================================
 async function connectMetaMask() {
   if (typeof window.ethereum === "undefined") {
     throw new Error("MetaMask not installed. Please install MetaMask from https://metamask.io");
