@@ -1,7 +1,3 @@
-// <script src="https://cdn.jsdelivr.net/npm/ethers@6.9.0/dist/ethers.umd.min.js"></script>
-// <script src="blockchain.js"></script>
-
-// ⚠️ Replace with your deployed contract address after Remix deployment
 const CONTRACT_ADDRESS = "0x1217cd3b3d18970ddaccff04b22f0e380e914079";
 
 // ABI — only the functions we need from ComplaintRegistry.sol
