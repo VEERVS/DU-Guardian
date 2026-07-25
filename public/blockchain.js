@@ -1,6 +1,4 @@
 const CONTRACT_ADDRESS = "0x1217cd3b3d18970ddaccff04b22f0e380e914079";
-
-// ABI — only the functions we need from ComplaintRegistry.sol
 const CONTRACT_ABI = [
   {
     "inputs": [
